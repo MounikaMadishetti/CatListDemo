@@ -8,11 +8,14 @@
 import UIKit
 
 class CatDetailViewController: UIViewController {
-
+    var viewModel: CatDetailViewModel?
+    @IBOutlet weak var textview: UITextView!
+    @IBOutlet weak var imageView: CustomImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if let url = URL(string: (viewModel?.catData?.url)!){
+        imageView.getImage(with: url)
+        }
     }
     
 

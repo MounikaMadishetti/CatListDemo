@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import UIKit
+extension UIViewController {
+    static var identifer: String {
+        return String(describing: self)
+    }
+    static func instantiate() -> Self {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: identifer) as! Self
+        return vc
+    }
+}
